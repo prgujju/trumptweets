@@ -16,8 +16,8 @@ import uvicorn
 
 tags_metadata = [
     {
-        "name": "Fake Trump Tweet",
-        "description": "Send a GET request to ```https://faketrumptweets.herokuapp.com/tweet?text=```+your text.",
+        "name": "Fake Modi Tweet",
+        "description": "Send a GET request to ```https://lysea.herokuapp.com/tweet?text=```+your text.",
     }]
 
 app = FastAPI(
