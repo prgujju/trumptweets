@@ -21,7 +21,7 @@ tags_metadata = [
     }]
 
 app = FastAPI(
-	title="Fake Trump Tweets API",
+	title="Fake Modi Tweets API",
     description="I needed an api of fake trump tweets for a meme but couldn't find it, so i made it.",
     version="1.0.5",
     docs_url=None, 
@@ -40,7 +40,7 @@ app.add_middleware(
 )
 
 
-@app.get("/tweet",response_class=FileResponse,tags=["Fake Trump Tweet"])
+@app.get("/tweet",response_class=FileResponse,tags=["Fake Modi Tweet"])
 async def tweet(text: Optional[str]=None):
 	try:
 		img = Image.open("./blank.png")
