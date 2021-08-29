@@ -74,13 +74,13 @@ async def modi(text: Optional[str]=None):
 @app.get("/mia",response_class=FileResponse,tags=["Fake trump Tweet"])
 async def mia(text: Optional[str]=None):
 	try:
-		img = Image.open("./blank.png")
+		img = Image.open("./mis.png")
 	except Exception:
-		blank = requests.get("https://firebasestorage.googleapis.com/v0/b/predit-f5df7.appspot.com/o/mis.png?alt=media&token=d451e77b-6fd3-4eb3-9a45-059ff6929c39")
-		with open("blank.png","wb") as f:
-			f.write(blank.content)
+		mis = requests.get("https://firebasestorage.googleapis.com/v0/b/predit-f5df7.appspot.com/o/mis.png?alt=media&token=d451e77b-6fd3-4eb3-9a45-059ff6929c39")
+		with open("mis.png","wb") as f:
+			f.write(mis.content)
 			f.close()
-	img = Image.open("./blank.png")
+	img = Image.open("./mis.png")
 	draw = ImageDraw.Draw(img)
 	try:
 		with open("font.ttf","rb") as font:
