@@ -17,12 +17,12 @@ import uvicorn
 tags_metadata = [
     {
         "name": "Fake Modi Tweet",
-        "description": "Send a GET request to ```https://lysea.herokuapp.com/tweet?text=```+your text.",
+        "description": "Send a GET request to ```https://lysea.herokuapp.com/tweet?text=```+your text. Thanks To [TechnoStone.xyz](https://www.technostone.xyz)",
     }]
 
 app = FastAPI(
 	title="Fake Modi Tweets API",
-    description="I needed an api of fake Modi tweets for a meme but couldn't find it, so i made it.",
+    description="I needed an api of fake Modi tweets for a meme but couldn't find it, so i made it. Thanks To [TechnoStone.xyz](https://www.technostone.xyz)",
     version="1.0.5",
     docs_url=None, 
     redoc_url="/",
@@ -40,8 +40,8 @@ app.add_middleware(
 )
 
 
-@app.get("/tweet",response_class=FileResponse,tags=["Fake Modi Tweet"])
-async def tweet(text: Optional[str]=None):
+@app.get("/modi",response_class=FileResponse,tags=["Fake Modi Tweet"])
+async def modi(text: Optional[str]=None):
 	try:
 		img = Image.open("./blank.png")
 	except Exception:
@@ -61,9 +61,9 @@ async def tweet(text: Optional[str]=None):
 			f.close()
 
 	font = ImageFont.truetype("font.ttf", 18)
-	lines = textwrap.wrap(text, width=1)
+	lines = textwrap.wrap(text, width=60)
 	if len(lines) > 1:
-		draw.text((15, 62),"For this code/Api Join @rarecodes.",fill="#604af0",font=font)
+		draw.text((15, 62),"Only 60 character Allow.",fill="#604af0",font=font)
 	else:
 		draw.text((15, 57),text,fill="#14171a",font=font)
 	img.save("hi.png")
@@ -71,12 +71,12 @@ async def tweet(text: Optional[str]=None):
 	return StreamingResponse(file_like, media_type="image/png")
 
 
-@app.get("/trump",response_class=FileResponse,tags=["Fake trump Tweet"])
-async def trump(text: Optional[str]=None):
+@app.get("/mia",response_class=FileResponse,tags=["Fake trump Tweet"])
+async def mia(text: Optional[str]=None):
 	try:
 		img = Image.open("./blank.png")
 	except Exception:
-		blank = requests.get("https://firebasestorage.googleapis.com/v0/b/predit-f5df7.appspot.com/o/tweet.png?alt=media&token=c58ab68f-f758-4403-8cc1-5eadab6f163b")
+		blank = requests.get("https://firebasestorage.googleapis.com/v0/b/predit-f5df7.appspot.com/o/mis.png?alt=media&token=d451e77b-6fd3-4eb3-9a45-059ff6929c39")
 		with open("blank.png","wb") as f:
 			f.write(blank.content)
 			f.close()
@@ -92,9 +92,9 @@ async def trump(text: Optional[str]=None):
 			f.close()
 
 	font = ImageFont.truetype("font.ttf", 18)
-	lines = textwrap.wrap(text, width=1)
+	lines = textwrap.wrap(text, width=60)
 	if len(lines) > 1:
-		draw.text((15, 62),"For this code/Api Join @rarecodes.",fill="#604af0",font=font)
+		draw.text((15, 62),"Only 60 character Allow.",fill="#604af0",font=font)
 	else:
 		draw.text((15, 57),text,fill="#14171a",font=font)
 	img.save("hi.png")
